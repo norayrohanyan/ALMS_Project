@@ -11,8 +11,8 @@ header {
     align-items: center;
     justify-content: space-between;
     background-color: #333;
-    color: white;
-    padding: 20px;
+    color: black;
+    padding: 20px 60px;
 }
 
 header img {
@@ -33,4 +33,22 @@ nav a {
 nav a:hover {
     color: #fff;
     background-color: #555;
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        display: block;
+        margin: 20px;
+    }
 }

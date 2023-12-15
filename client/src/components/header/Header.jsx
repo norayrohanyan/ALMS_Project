@@ -7,9 +7,9 @@ const Header = () => {
     <header>
         <img src="/logo.webp" alt="logo" />
       <nav>
-          <a><Link to="/">Home</Link></a>
-          <a><Link to="/catalog">Catalog</Link></a>
-          <a><Link to="/login">Login/Registration</Link></a>
+          <a><Link to = "/">Home</Link></a>
+          <a><Link to = "/catalog">Catalog</Link></a>
+          <a><Link to = "/login">Login/Registration</Link></a>
       </nav>
     </header>
   );
