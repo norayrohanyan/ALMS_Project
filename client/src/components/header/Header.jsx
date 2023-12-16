@@ -5,7 +5,7 @@ import './Header.css'
 const Header = () => {
   return (
     <header>
-        <img src="/logo.webp" alt="logo" />
+        <img src="/images/logo.webp" alt="logo" />
       <nav>
           <a><Link to = "/">Home</Link></a>
           <a><Link to = "/catalog">Catalog</Link></a>

@@ -1,0 +1,40 @@
+.book-listing {
+    display: flex;
+    /* padding: 10px; */
+    cursor: pointer;
+    transition: color 0.3s;
+    flex-direction: column;
+    max-width: 100%;
+  }
+  
+  .book-listing:hover .book-title {
+    color: #007bff;
+    text-decoration: underline;
+  }
+
+  .book-listing img {
+    width: 50%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+  
+  .book-details {
+    margin-left: 10px;
+  }
+  
+  .book-title {
+    color: gray;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .author {
+    color: gray;
+    font-size: 14px;
+  }
+  
+  .availability {
+    color: gray;
+    font-size: 14px;
+  }  
