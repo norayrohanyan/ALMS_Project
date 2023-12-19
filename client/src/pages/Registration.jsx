@@ -1,4 +1,3 @@
-// client/src/components/Registration.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../components/login/Login.css';
@@ -10,22 +9,23 @@ const Registration = () => {
     password: '',
   });
 
+  const [hasError, setHasError] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setFormData((prevData) => ({...prevData, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Send registration data to the server
       const response = await axios.post('http://localhost:3001/api/users', formData);
       console.log(response.data);
 
-      // Reset the form after successful registration
       setFormData({ username: '', email: '', password: '' });
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error during registration:', error.message);
     }
   };
@@ -34,7 +34,7 @@ const Registration = () => {
     <div className="form-container">
       <div className="content">
         <h2>Registration</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit = {handleSubmit}>
           <div className="form-group">
             <label htmlFor="username"></label>
             <input
@@ -49,7 +49,7 @@ const Registration = () => {
           </div>
           <div className="form-group">
             <label htmlFor="email"></label>
-            <input
+            <input 
               type="email"
               id="email"
               name="email"
@@ -61,7 +61,7 @@ const Registration = () => {
           </div>
           <div className="form-group">
             <label htmlFor="password"></label>
-            <input
+            <input 
               type="password"
               id="password"
               name="password"
