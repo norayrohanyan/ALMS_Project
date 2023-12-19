@@ -97,3 +97,15 @@ form input:hover {
     text-decoration: underline;
     color: #007bff;
 }
+
+/* Add these styles to your CSS file or create a new one */
+.error {
+    border: 1px solid red;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+  
