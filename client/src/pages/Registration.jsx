@@ -7,6 +7,7 @@ const Registration = () => {
     username: '',
     email: '',
     password: '',
+    role : 'USER',
   });
 
   const [hasError, setHasError] = useState(false);
