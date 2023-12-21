@@ -15,15 +15,24 @@
     align-items: start;
     width: 20%;
     gap: 60px; /* Adjusted gap */
-    padding: 20px; /* Adjusted padding */
+    padding: 30px 80px; /* Adjusted padding */
+    border-top: 1px solid rgb(212, 212, 212);
   }
   
   .book-listings {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    width: 60%;
+    gap: 100px;
+    /* margin-right: 100px; */
+    background-color: #dfe3eb;
+    padding: 120px;
+    /* border-radius: 20px; */
+    width: 80%;
     /* Add more styles as needed */
+  }
+
+  .book-listings a {
+    text-decoration: none;
   }
   
   .load-more {
@@ -36,9 +45,10 @@
     cursor: pointer;
     transition: background-color 0.3s;
     display: inline;
-    position: absolute; /* Added position: absolute; */
-    bottom: 0; /* Adjusted bottom */
-    right: 37%; /* Adjusted right */
+    position: absolute; 
+    bottom: 0;
+    right: 37%; 
+    margin-bottom: 20px;
   }
   
   .load-more:hover {

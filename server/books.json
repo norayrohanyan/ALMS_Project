@@ -20,7 +20,7 @@
       "language": "English",
       "page_count": 1208
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
@@ -39,7 +39,7 @@
       "language": "English",
       "page_count": 323
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
@@ -58,12 +58,12 @@
       "language": "English",
       "page_count": 409
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "Software Architecture: The Hard Parts",
-    "author": [
+    "authors": [
       "Neal Ford",
       "Marc Richards",
       "Pramod Sadalage",
@@ -86,12 +86,12 @@
       "language": "English",
       "page_count": 425
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "Modern C++ Design",
-    "author": ["Andrei Alexandrescu", "Scott Meyers", "John Vlissides"],
+    "authors": ["Andrei Alexandrescu", "Scott Meyers", "John Vlissides"],
     "isbn": "0201704315",
     "published_year": 2001,
     "category": [
@@ -111,12 +111,12 @@
       "language": "English",
       "page_count": 313
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "Decode to Encode",
-    "author": ["Avinash Ramachandran"],
+    "authors": ["Avinash Ramachandran"],
     "isbn": "9780998045016",
     "published_year": 2018,
     "category": ["Video Compression", "GOPs", "Video Codec Architecture"],
@@ -130,12 +130,12 @@
       "language": "English",
       "page_count": 181
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "System Design Interview",
-    "author": ["Alex Xu"],
+    "authors": ["Alex Xu"],
     "isbn": "9798664653403",
     "published_year": 2020,
     "category": [
@@ -155,12 +155,12 @@
       "language": "English",
       "page_count": 313
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "A Digital Signal Preocessing Primer",
-    "author": ["Ken Steiglitz"],
+    "authors": ["Ken Steiglitz"],
     "isbn": "9780486845838",
     "published_year": 2020,
     "category": [
@@ -178,12 +178,12 @@
       "language": "English",
       "page_count": 309
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "The Fabric of Reality",
-    "author": ["Daivd Deutsch"],
+    "authors": ["Daivd Deutsch"],
     "isbn": "0713990619",
     "published_year": 1997,
     "category": ["Computer Science", "Quantum Computers", "Virtual Reality"],
@@ -197,12 +197,12 @@
       "language": "English",
       "page_count": 371
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "Fundamentals of Software Architecture",
-    "author": ["Marc Richards", "Neal Ford"],
+    "authors": ["Marc Richards", "Neal Ford"],
     "isbn": "9781492043454",
     "published_year": 2001,
     "category": [
@@ -222,12 +222,12 @@
       "language": "English",
       "page_count": 383
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "Raspberry Pi",
-    "author": ["Simon Monk"],
+    "authors": ["Simon Monk"],
     "isbn": "9785990846265",
     "published_year": 2014,
     "category": ["Raspberry Pi", "GPIO connector", "System Programming"],
@@ -241,12 +241,12 @@
       "language": "Russian",
       "page_count": 410
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "The Innovators",
-    "author": ["Walter Isaacson"],
+    "authors": ["Walter Isaacson"],
     "isbn": "9781476708690",
     "published_year": 2014,
     "category": [
@@ -267,12 +267,12 @@
       "language": "English",
       "page_count": 410
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "Raspberry Pi 4",
-    "author": ["Gareth Halfacree"],
+    "authors": ["Gareth Halfacree"],
     "isbn": "9785970609026",
     "published_year": 2021,
     "category": [
@@ -291,12 +291,12 @@
       "language": "English",
       "page_count": 410
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",  
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "The Game Console 2.0",
-    "author": ["Evan Amos"],
+    "authors": ["Evan Amos"],
     "isbn": "9781718500600",
     "published_year": 2021,
     "category": ["Microsoft XBOX", "Sony Playstation", "Nintendo"],
@@ -310,12 +310,12 @@
       "language": "English",
       "page_count": 312
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "Multithreaded JavaScript",
-    "author": ["Thomas Hunter", "Bryan English"],
+    "authors": ["Thomas Hunter", "Bryan English"],
     "isbn": "9781098104436",
     "published_year": 2021,
     "category": [
@@ -338,12 +338,12 @@
       "language": "English",
       "page_count": 187
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "Distributed Systems with Node.js",
-    "author": ["Thomas Hunter"],
+    "authors": ["Thomas Hunter"],
     "isbn": "9781492077299",
     "published_year": 2020,
     "category": [
@@ -365,12 +365,12 @@
       "language": "English",
       "page_count": 355
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "iOS Programming",
-    "author": ["Christian Keur", "Aaron Hillegass"],
+    "authors": ["Christian Keur", "Aaron Hillegass"],
     "isbn": "9780134682334",
     "published_year": 2016,
     "category": [
@@ -389,12 +389,12 @@
       "language": "English",
       "page_count": 449
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
   {
     "title": "The Startup Owner's Manual",
-    "author": ["Steve Blank", "Bob Dorf"],
+    "authors": ["Steve Blank", "Bob Dorf"],
     "isbn": "9780984999309",
     "published_year": 2016,
     "category": ["Customer Discovery", "Customer Validation", "Startup"],
@@ -408,7 +408,7 @@
       "language": "English",
       "page_count": 557
     },
-    "cover_url": "https://example.com/thumbnails/java-complete-reference.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/java-complete-reference.pdf"
   },
 
@@ -441,7 +441,7 @@
       "language": "English",
       "page_count": 604
     },
-    "cover_url": "https://example.com/thumbnails/expert-c++-second-edition.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/expert-c++-second-edition.pdf"
   },
   {
@@ -465,13 +465,13 @@
       "language": "English",
       "page_count": 664
     },
-    "cover_url": "https://example.com/thumbnails/nodejs-design-patterns.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/nodejs-design-patterns.pdf"
   },
   {
     "title": "Inside the C++ Object Model",
     "isbn": "0201834545",
-    "author": ["Stanley B. Lippman"],
+    "authors": ["Stanley B. Lippman"],
     "published_year": 1996,
     "category": [
       "C++",
@@ -494,7 +494,7 @@
       "language": "English",
       "page_count": 304
     },
-    "cover_url": "https://example.com/thumbnails/inside-cpp-object-model.jpg",
+    "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
     "online_version_url": "https://example.com/ebooks/inside-cpp-object-model.pdf"
   },
   {
@@ -517,10 +517,10 @@
     "additional_info": {
       "publisher": "Addison-Wesley Professional",
       "language": "English",
-      "page_count": 288,
-      "cover_url": "https://example.com/thumbnails/effective-stl.jpg",
+      "page_count": 288
+    },
+      "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
       "online_version_url": "https://example.com/ebooks/effective-stl.pdf"
-    }
   },
   {
     "title": "Thinking Low-Level, Writing High-Level",
@@ -541,9 +541,10 @@
     "additional_info": {
       "publisher": "No Starch Press",
       "language": "English",
-      "page_count": 656,
-      "cover_url": "https://example.com/thumbnails/thinking-low-level.jpg",
+      "page_count": 656
+    },
+      "cover_url": "https://content.packt.com/B15729/cover_image_small.jpg",
       "online_version_url": "https://example.com/ebooks/thinking-low-level.pdf"
-    }
+    
   }  
 ]

@@ -1,28 +1,34 @@
 // CatalogPage.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import SearchBar from '../components/catalogPage/searchBar/SearchBar';
 import FilterBar from '../components/catalogPage/filterBar/FilterBar';
 import BookListing from '../components/catalogPage/bookListing/BookListing';
 import './Catalog.css';
 
 const Catalog = () => {
-  
   const [books, setBooks] = useState([]);
+  const [displayedBooks, setDisplayedBooks] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
-    // Fetch data when the component mounts
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/books'); // Update with your Express.js server URL
+        const response = await axios.get('http://localhost:3001/api/books');
         setBooks(response.data);
+        setDisplayedBooks(response.data.slice(0, visibleCount));
       } catch (error) {
         console.error('Error fetching data:', error.message);
       }
     };
 
     fetchData();
-  }, []);
+  }, [visibleCount]);
+
+  const loadMoreBooks = () => {
+    setVisibleCount((prevCount) => prevCount + 6);
+  };
 
   return (
     <div className="catalog-page">
@@ -32,15 +38,16 @@ const Catalog = () => {
           <FilterBar />
         </div>
         <div className="book-listings">
-          {books.map((book) => (
-            <BookListing key={book.isbn} book={book} />
+          {displayedBooks.map((book) => (
+            <Link to = {`/bookdetails/${book.isbn}`}> <BookListing key={book.isbn} book={book} /></Link>
           ))}
         </div>
-        <button className="load-more">Load More</button>
-
+        {visibleCount < books.length && (
+          <button className="load-more" onClick={loadMoreBooks}>
+            Load More
+          </button>
+        )}
       </div>
-
-      {/* Add footer if needed */}
     </div>
   );
 };

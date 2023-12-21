@@ -8,7 +8,7 @@ const Login = () => {
         
         <section className="form-container">
             <div className="content">           
-                <span>Login</span>
+                <span className='login-title'>Login</span>
                 <form>
                     <label htmlFor="username">
                         Username

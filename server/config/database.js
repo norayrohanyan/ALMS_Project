@@ -1,9 +1,8 @@
 import mongoose from 'mongoose';
-import Book from '../models/Book.js';
 import bookData from '../books.json' assert {type: 'json'};
+import Book from '../models/Book.js';
 import dotenv from 'dotenv';
 dotenv.config();
-
 mongoose.connect(process.env.mongodb, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
@@ -13,10 +12,10 @@ db.once('open', async () => {
   console.log('Connected to MongoDB!');
 
   try {
-    if (!bookData) {
+   if (!bookData) {
       await Book.insertMany(bookData);
       console.log('Data inserted successfully');
-    }
+   }
   } 
   catch (error) {
     console.error('Error inserting data:', error);

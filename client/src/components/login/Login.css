@@ -33,7 +33,7 @@
     border-radius: 4%;
 }
   
-span {
+.login-title {
     font-size: 32px;
     color: black;
     text-align: center;

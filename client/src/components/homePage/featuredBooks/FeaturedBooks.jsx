@@ -1,5 +1,6 @@
 import React from 'react';
 import './FeaturedBooks.css'
+import { Link } from 'react-router-dom';
 
 const FeaturedBooks = () => {
   // Mock data for featured books
@@ -22,7 +23,7 @@ const FeaturedBooks = () => {
           </div>
         ))}
       </div>
-      <button className="view-all-button">View All</button>
+      <Link to='/catalog'> <button className="view-all-button">View All</button></Link> 
     </section>
   );
 };

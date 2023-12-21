@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const bookSchema = new Schema({
   title: { type: String, required: true },
   authors: [{ type: String, required: true }],
-  isbn: { type: String, required: true, unique: true },
+  isbn: { type: String, required: true },
   published_year: { type: Number, required: true },
   category: [{ type: String, required: true }],
   availability: { type: Boolean, required: true },
