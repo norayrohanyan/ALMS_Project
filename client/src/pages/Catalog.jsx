@@ -7,6 +7,7 @@ import FilterBar from '../components/catalogPage/filterBar/FilterBar';
 import BookListing from '../components/catalogPage/bookListing/BookListing';
 import './Catalog.css';
 
+
 const Catalog = () => {
   const [books, setBooks] = useState([]);
   const [displayedBooks, setDisplayedBooks] = useState([]);
@@ -30,15 +31,21 @@ const Catalog = () => {
     setVisibleCount((prevCount) => prevCount + 6);
   };
 
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearchResults = (results) => {
+    setSearchResults(results);
+  };
+
   return (
     <div className="catalog-page">
       <div className="main-area">
         <div className="search-and-filter">
-          <SearchBar />
+          <SearchBar onSearchResults={handleSearchResults} />
           <FilterBar />
         </div>
         <div className="book-listings">
-          {displayedBooks.map((book) => (
+          {(searchResults.length > 0 ? searchResults : displayedBooks).map((book) => (
             <Link to = {`/bookdetails/${book.isbn}`}> <BookListing key={book.isbn} book={book} /></Link>
           ))}
         </div>

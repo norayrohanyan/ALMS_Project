@@ -1,111 +1,148 @@
-@keyframes intro-gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  
-  .form-container {
-    max-width: 400px;
-    padding: 6px;
-    color: #555;
-    margin: auto;
-    font-size: 14px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border-radius: 20px;
-    background-image: linear-gradient(94.37deg, #01fbee 0%, #15dbe5 16.95%, #36a7de 32.81%, #4e84db 47.86%, #6760d5 59.53%, #6760d5 61.46%, #7c4ad2 71.37%, #9037cc 83.86%, #a626c8 100%);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    background-size: 200%;
-    animation: intro-gradient 3s ease-in-out infinite;
+.form-container {
+  max-width: 400px;
+  padding: 6px;
+  color: #555;
+  margin: auto;
+  font-size: 14px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  background-image: linear-gradient(
+      94.37deg,
+      #01fbee 0%,
+      #15dbe5 16.95%,
+      #36a7de 32.81%,
+      #4e84db 47.86%,
+      #6760d5 59.53%,
+      #6760d5 61.46%,
+      #7c4ad2 71.37%,
+      #9037cc 83.86%,
+      #a626c8 100%
+  );
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-size: 200%;
+  animation: intro-gradient 3s ease-in-out infinite;
 }
-  
-.content {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    padding: 50px;
-    border-radius: 4%;
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 50px;
+  border-radius: 4%;
 }
-  
+
 .login-title {
-    font-size: 32px;
-    color: black;
-    text-align: center;
-    margin: auto;
-    margin-bottom: 50px;
+  font-size: 32px;
+  color: black;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 50px;
 }
 
 form {
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-form input {
-    background-color: #f2f2f2;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    padding: 12px;
-    transition: background-color 0.3s;
+.input-container {
+  position: relative;
 }
 
-form input:focus {
-    outline: none; 
+.form-field {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 16px;
+  transition: background-color 0.3s;
+  border-color: transparent;
+  width: 90%;
 }
 
-form input:hover {
-    background-color: #e6e6e6;
-  }
+label {
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 5px;
+  position: absolute;
+  pointer-events: none;
+  left: 12px;
+  top: 16px;
+  color: gray;
+}
+
+.form-field:focus + label,
+.form-field:not(:placeholder-shown) + label {
+  background: linear-gradient(
+    306deg,
+    rgba(166, 68, 253, 0.88) 3.5%,
+    rgba(243, 0, 255, 0.88) 51.28%,
+    rgba(255, 27, 191, 0.88) 96.12%
+  );  
+  -webkit-background-clip: text;
+  color: transparent;  
+  font-size: 12px; 
+  transform: translateY(-22px);
+  text-align: center;
+}
+
+.form-field:focus {
+  outline: none;
+}
+
+.form-field:hover {
+  background-color: #e6e6e6;
+}
 
 .submit-button {
-    background-image: linear-gradient(306deg, rgba(166, 68, 253, 0.88) 3.5%, rgba(243, 0, 255, 0.88) 51.28%, rgba(255, 27, 191, 0.88) 96.12%);
-    color: white;
-    font-size: 16px;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-image: linear-gradient(
+      306deg,
+      rgba(166, 68, 253, 0.88) 3.5%,
+      rgba(243, 0, 255, 0.88) 51.28%,
+      rgba(255, 27, 191, 0.88) 96.12%
+  );
+  color: white;
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .submit-button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .form-links {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
 .form-links a {
-    text-decoration: none;
-    font-size: 14px;
-    color: gray;
+  text-decoration: none;
+  font-size: 14px;
+  color: gray;
 }
 
 .form-links a:hover {
-    text-decoration: underline;
-    color: #007bff;
+  text-decoration: underline;
+  color: #007bff;
 }
 
-/* Add these styles to your CSS file or create a new one */
 .error {
-    border: 1px solid red;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 0.8rem;
-    margin-top: 4px;
-  }
-  
+  border: 1px solid red;
+}
+
+.error .form-field + label {
+  color: red; 
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}

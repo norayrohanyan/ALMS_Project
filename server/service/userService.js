@@ -7,7 +7,7 @@ class UserService {
             if (!username || !email || !password) {
                 throw { username: 'ValidationError', message: 'All fields are required' };
             }
-            const existUser = await User.findOne(User.email);
+            const existUser = await User.findOne({email: User.email});
             if (existUser) {
                 throw { username: 'ValidationError', message: 'User with this email already exists' };
             }
@@ -27,6 +27,27 @@ class UserService {
         }
         catch(error) {
             console.error('Error during user registration:', error);
+            throw error;
+        }
+    }
+
+    static async loginUser(email, password) {
+        try {
+            const existUser = await User.findOne({email});
+            if (!existUser) {
+                throw { username: 'ValidationError', message: 'User not found' };
+            }
+
+            const match = bcrypt.compare(password, existUser.password);
+
+            if(!match) {
+                throw { username: 'ValidationError', message: 'Incorrect password' };
+            }
+            const redirectUrl = '/userpage';
+            return { message: 'Login successful', redirectUrl };
+        }
+        catch(error) {
+            console.error('Error during user login:', error);
             throw error;
         }
     }

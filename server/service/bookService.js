@@ -22,6 +22,22 @@ class BookService {
             throw new Error('Internal Server Error');
         }
     }
+
+    static async searchBooks(query) {
+        try {
+            const searchResults = await Book.find({
+                $or: [
+                    { title: { $regex: new RegExp(query, 'i') } },
+                    { author: { $regex: new RegExp(query, 'i') } },
+                ],
+            });
+            return searchResults; v
+        } 
+        catch (error) {
+            console.error('Error searching books:', error.message);
+            throw new Error('Internal Server Error');
+        }
+    }
 }
 
 export default BookService;

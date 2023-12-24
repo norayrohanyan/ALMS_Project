@@ -71,3 +71,22 @@
   color: rgb(20, 154, 114);
   font-size: 14px;
 }
+
+
+/* Add these styles to your existing stylesheet */
+
+.recent-book-details-wrapper {
+  position: relative;
+  margin-top: 80px; /* Adjusted margin for better spacing */
+  padding: 20px;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out; 
+  border-radius: 10px; 
+  border: 2px solid #e2e2e2; 
+  background: transparent;
+}
+

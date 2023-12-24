@@ -1,51 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './RecentAdditions.css';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Book from '../Book';
 
 const RecentAdditions = () => {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [recentAdditions, setRecentAdditions] = useState([]);
+  const [displayedBooks, setDisplayedBooks] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(5);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const recentAdditions = [
-    { id: 1, title: 'JavaScript Definitive Guide', author: 'David Flanagan', path: '/images/book1.png' },
-    { id: 2, title: 'Grokking Algorithms', author: 'Aditya Y. Bhargava', path: '/images/book2.png' },
-    { id: 3, title: 'Version Control with git', author: 'O. Reilly', path: '/images/book3.png' },
-    { id: 4, title: 'This & Object Prototypes', author: 'Kyle Simpson', path: '/images/book4.png' },
-    { id: 5, title: 'Introduction to Algorithms', author: 'Thomas Cormen', path: '/images/book5.png' },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/api/books');
+        setRecentAdditions(response.data);
+        setDisplayedBooks(response.data.slice(0, visibleCount));
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
+    };
 
-  const itemsPerPage = 4;
-  const totalPages = Math.ceil(recentAdditions.length / itemsPerPage);
+    fetchData();
+  }, [visibleCount]);
 
-  const handlePrev = () => {
-    setCurrentPage((prevPage) => (prevPage - 1 + totalPages) % totalPages);
+  const handleArrowClick = (direction) => {
+    if (direction === 'next') {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) );
+    } else if (direction === 'prev') {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 ));
+    }
   };
 
-  const handleNext = () => {
-    setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
-  };
+ 
+  useEffect(() => {
+    setDisplayedBooks(recentAdditions.slice(currentIndex, currentIndex + visibleCount));
+  }, [currentIndex, recentAdditions, visibleCount]);
 
-  const startIndex = currentPage * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-
-  const visibleBooks = recentAdditions.slice(startIndex, endIndex);
 
   return (
-    <section className="recent-additions">
+    <div className="recent-additions">
       <h2>Recent Additions</h2>
       <div className="carousel">
-        {visibleBooks.map((book) => (
-          <div key={book.id} className="carousel-item">
-            <img src={book.path} alt={book.title} />
-            <p>{book.title}</p>
-          </div>
+        {displayedBooks.map((book) => (
+          <Book key={book.isbn} book={book} />
         ))}
       </div>
-      <div className="prev-arrow" onClick={handlePrev}>
-        &#9664;
+      <div className="arrows">
+        <span className="prev-arrow" onClick={() => handleArrowClick('prev')}>←</span>
+        <span className="next-arrow" onClick={() => handleArrowClick('next')}>→</span>
       </div>
-      <div className="next-arrow" onClick={handleNext}>
-        &#9654;
-      </div>
-    </section>
+    </div>
   );
 };
 

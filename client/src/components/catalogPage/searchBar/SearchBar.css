@@ -17,7 +17,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin: auto; */
     background-image: linear-gradient(94.37deg, #01fbee 0%, #15dbe5 16.95%, #36a7de 32.81%, #4e84db 47.86%, #6760d5 59.53%, #6760d5 61.46%, #7c4ad2 71.37%, #9037cc 83.86%, #a626c8 100%);
     border-image-slice: 1;
     border-radius: 10px;
@@ -33,17 +32,23 @@
     background-color: #f2f2f2;
     font-size: 16px;
     color: gray;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     padding: 14px;
 }
 
-/* .search-bar::after {
-    content: "🔍";
-    position: absolute;
-
-} */
-
 .search-input:focus {
     outline: none;
+}
+
+.search-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  background: #f2f2f2;
+  height: 100%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 

@@ -1,30 +1,37 @@
-import React from 'react';
-import './FeaturedBooks.css'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import './FeaturedBooks.css';
+import axios from 'axios';
+import Book from '../Book';
+import { Link } from 'react-router-dom'
 
 const FeaturedBooks = () => {
-  // Mock data for featured books
-  const featuredBooks = [
-    { id: 1, title: 'JavaScript Definitive Guide', author: 'David Flanagan', path: '/images/book1.png' },
-    { id: 2, title: 'Version Control with git', author: 'O. Reilly', path: '/images/book3.png' },
-    { id: 3, title: 'Intoduction to Algorithms', author: 'Thomas Cormen', path: '/images/book5.png' },
+  const [books, setBooks] = useState([]);
 
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/api/books');
+        setBooks(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const shuffledBooks = [...books].sort(() => Math.random() - 0.5);
 
   return (
-    <section className = "featured-books">
+    <div className="featured-books">
       <h2>Featured Books</h2>
-      <div className = "books">
-        {featuredBooks.map(book => (
-          <div key = {book.id} className = "book">
-            <img src = {book.path} alt = {book.title} />
-            <p>{book.title}</p>
-            <p>{book.author}</p>
-          </div>
+      <div className="books">
+        {shuffledBooks.slice(0, 3).map((book, index) => (
+          <Book key={index} book={book} />
         ))}
       </div>
       <Link to='/catalog'> <button className="view-all-button">View All</button></Link> 
-    </section>
+    </div>
   );
 };
 

@@ -1,0 +1,15 @@
+.related-books-title {
+    font-size: 32px;
+    text-align: center;
+    background: linear-gradient(94.37deg, #01fbee 0%, #15dbe5 16.95%, #36a7de 32.81%, #4e84db 47.86%, #6760d5 59.53%, #6760d5 61.46%, #7c4ad2 71.37%, #9037cc 83.86%, #a626c8 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-top: 100px;
+}
+
+.related-books {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}

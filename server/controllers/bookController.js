@@ -1,3 +1,4 @@
+import { query } from "express";
 import BookService from "../service/bookService.js";
 
 class BookController {
@@ -20,6 +21,18 @@ class BookController {
         catch (error) {
             console.error('Controller Error:', error.message);
             res.status(500).json({ error: error.message });
+        }
+    }
+
+    static async searchBooks(req, res) {
+        try {
+            const { query } = req.query;
+            const searchResult = await BookService.searchBooks(query);
+            res.status(201).json(searchResult);
+        }
+        catch(error) {
+            console.error('Error during book search:', error);
+            res.status(500).json({ error: 'Internal Server Error' });
         }
     }
 }

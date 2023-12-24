@@ -1,68 +1,45 @@
 .recent-additions {
-    max-width: 80%;
+    margin-top: 100px;
+    max-width: 100%;
     padding: 20px;
-    position: relative;
-    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .recent-additions h2 {
-    margin-bottom: 100px;
     font-size: 32px;
     text-align: center;
-    background: linear-gradient(94.37deg, #01fbee 0%, #15dbe5 16.95%, #36a7de 32.81%, #4e84db 47.86%, #6760d5 59.53%, #6760d5 61.46%, #7c4ad2 71.37%, #9037cc 83.86%, #a626c8 100%);
+    background: linear-gradient(90deg, #8f57ef 0%, #3a72ef 50%, #3ed4ae 100%);
     -webkit-background-clip: text;
     color: transparent;
 }
 
 .carousel {
-    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center; 
     gap: 50px;
     padding: 0 50px;
     transition: transform 0.5s ease-in-out;
+    width: 80%;
 }
 
-.carousel-item {
-    max-width: 300px; 
-    margin: 0 auto; 
-    text-align: center; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-}
-
-.carousel-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.carousel-item p {
-    font-size: 16px;
-    color: #333;
-    margin: 0;
-}
-
-.prev-arrow,
-.next-arrow {
-    position: absolute;
-    top: 55%;
-    background-image: linear-gradient(306deg, rgba(166, 68, 253, 0.88) 3.5%, rgba(243, 0, 255, 0.88) 51.28%, rgba(255, 27, 191, 0.88) 96.12%);
-    color: white;
-    font-size: 24px;
-    border: none;
-    border-radius: 50%;
-    padding: 5px 10px;
+.arrows {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
     text-align: center;
+    font-size: 80px;
+    text-decoration: none;
     cursor: pointer;
+    padding: 5px 10px;
+    color: gray;
 }
 
-.prev-arrow {
-    left: 0;
-}
-
-.next-arrow {
-    right: 0;
+.prev-arrow:hover,
+.next-arrow:hover {
+   color: #333;
 }

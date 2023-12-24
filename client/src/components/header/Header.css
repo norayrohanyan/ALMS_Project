@@ -12,7 +12,10 @@ header {
     justify-content: space-between;
     background-color: #333;
     color: black;
-    padding: 20px 60px;
+    padding: 20px;
+    /* position: fixed;  */
+    /* width: 100%;
+    z-index: 1000; */
 }
 
 header img {

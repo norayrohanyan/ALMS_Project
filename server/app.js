@@ -15,9 +15,9 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/api/books', bookRoutes);
-app.use('/api/bookdetails', bookRoutes);
 
-app.use('/api/users', userRoutes);
+
+app.use('/api/users/', userRoutes);
 // app.use('/api/loans', require('./routes/loans'));
 
 
