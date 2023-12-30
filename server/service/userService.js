@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import User from "../models/user.js";
+import User from "../models/User.js";
 
 class UserService {
     static async createUser (username, email, password) {
@@ -7,7 +7,7 @@ class UserService {
             if (!username || !email || !password) {
                 throw { username: 'ValidationError', message: 'All fields are required' };
             }
-            const existUser = await User.findOne({email: User.email});
+            const existUser = await User.findOne({ email });
             if (existUser) {
                 throw { username: 'ValidationError', message: 'User with this email already exists' };
             }
@@ -31,26 +31,25 @@ class UserService {
         }
     }
 
-    static async loginUser(email, password) {
+    static async getUserData(userId) {
         try {
-            const existUser = await User.findOne({email});
-            if (!existUser) {
-                throw { username: 'ValidationError', message: 'User not found' };
-            }
-
-            const match = bcrypt.compare(password, existUser.password);
-
-            if(!match) {
-                throw { username: 'ValidationError', message: 'Incorrect password' };
-            }
-            const redirectUrl = '/userpage';
-            return { message: 'Login successful', redirectUrl };
+          // Fetch user data based on userId
+          const user = await User.findById(userId);
+          if (!user) {
+            throw { name: 'ValidationError', message: 'User not found' };
+          }
+    
+          // Return relevant user data
+          return {
+            username: user.username,
+            email: user.email,
+            // Include other relevant data
+          };
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+          throw error;
         }
-        catch(error) {
-            console.error('Error during user login:', error);
-            throw error;
-        }
-    }
+      }
 }
 
 export default UserService;

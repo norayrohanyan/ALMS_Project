@@ -31,7 +31,7 @@ class BookService {
                     { author: { $regex: new RegExp(query, 'i') } },
                 ],
             });
-            return searchResults; v
+            return searchResults;
         } 
         catch (error) {
             console.error('Error searching books:', error.message);
