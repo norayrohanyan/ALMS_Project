@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 import '../components/login/Login.css';
 
 const Login = () => {
@@ -9,6 +9,14 @@ const Login = () => {
         password: '',
     });
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Check if the user is already authenticated
+        const token = localStorage.getItem('token');
+        if (token) {
+            navigate('/userpage');
+        }
+    }, [navigate]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,11 +27,13 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3001/api/users/login', formData);
-            console.log(response.data);
-
-            if (response.data.redirectUrl) {
-                navigate(response.data.redirectUrl);
+            const response = await axios.post('http://localhost:3001/api/auth/login', formData);
+            if (response.status === 200) {
+                localStorage.setItem('token', response.data.token);
+                // Reload the page after successful login
+                window.location.reload();
+            } else {
+                alert('Login failed. Check your credentials.');
             }
         } catch (error) {
             console.error('Error during login:', error.message);
@@ -66,7 +76,9 @@ const Login = () => {
                     </button>
                 </form>
                 <div className="form-links">
-                    <a className="link" href="#">Forgot Password</a>
+                    <a className="link" href="#">
+                        Forgot Password
+                    </a>
                     <Link to="/registration">Switch to Registration</Link>
                 </div>
             </div>
