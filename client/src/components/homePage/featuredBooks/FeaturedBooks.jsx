@@ -10,7 +10,13 @@ const FeaturedBooks = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/books');
+        const response = await axios.get('http://localhost:3001/api/books', {
+          params: {
+            filter: 'All books',
+            limit: 3,
+            offset: Math.random() * 10,
+          },
+        });
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching data:', error.message);
@@ -20,13 +26,11 @@ const FeaturedBooks = () => {
     fetchData();
   }, []);
 
-  const shuffledBooks = [...books].sort(() => Math.random() - 0.5);
-
   return (
     <div className="featured-books">
       <h2>Featured Books</h2>
       <div className="books">
-        {shuffledBooks.slice(0, 3).map((book, index) => (
+        {books.map((book, index) => (
           <Book key={index} book={book} />
         ))}
       </div>

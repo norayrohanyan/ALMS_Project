@@ -10,12 +10,6 @@ const Header = () => {
     setIsLoggedIn(!!token);
   }, []);
 
-  // Function to handle logout
-  // const handleLogout = () => {
-  //   localStorage.removeItem('token');
-  //   setIsLoggedIn(false);
-  //};
-
   return (
     <header>
       <Link to="/">
@@ -45,12 +39,6 @@ const Header = () => {
             </a>
           </div>
         )}
-        {/* {isLoggedIn && (
-          // Render a logout link for logged-in users
-          <Link to="/" onClick={handleLogout}>
-            Logout
-          </Link>
-        )} */}
       </nav>
     </header>
   );

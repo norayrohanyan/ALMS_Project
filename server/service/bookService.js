@@ -1,13 +1,29 @@
 import Book from "../models/Book.js";
+import Loan from "../models/Loan.js";
 
 class BookService {
-    static async getAllBooks() {
+    static async getAllBooks(filter, limit = 6, offset = 0) {
         try {
-            const books = await Book.find();
+            let query = {};
+            if (filter !== 'All books') {
+                query.category = filter;
+            }
+            const books = await Book.find(query).limit(limit).skip(offset);
             return books;
-        }
+        } 
         catch (error) {
             console.error('Error fetching books:', error.message);
+            throw new Error('Internal Server Error');
+        }
+    }
+
+    static async getCategories() {
+        try {
+            const categories = await Book.find().distinct('category');
+            return categories;
+        }
+        catch (error) {
+            console.error('Error fetching categories:', error.message);
             throw new Error('Internal Server Error');
         }
     }
@@ -15,7 +31,9 @@ class BookService {
     static async getBook(isbn) {
         try {
             const book = await Book.findOne({isbn: isbn});
-            return book;
+            const loan = await Loan.findOne({ book: book._id }) || null;
+          
+            return {book, loan};
         }
         catch (error) {
             console.error('Error fetching book:', error.message);

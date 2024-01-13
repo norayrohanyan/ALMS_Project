@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../components/login/Login.css';
 
 const Login = () => {
@@ -8,35 +8,49 @@ const Login = () => {
         email: '',
         password: '',
     });
+    const [error, setError] = useState(null);
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
     const navigate = useNavigate();
-
-    useEffect(() => {
-        // Check if the user is already authenticated
-        const token = localStorage.getItem('token');
-        if (token) {
-            navigate('/userpage');
-        }
-    }, [navigate]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
+        if (name === 'email') {
+            setEmailError('');
+        } else if (name === 'password') {
+            setPasswordError('');
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3001/api/auth/login', formData);
+            const response = await axios.post('http://localhost:3001/api/users/login', formData);
+
             if (response.status === 200) {
-                localStorage.setItem('token', response.data.token);
-                // Reload the page after successful login
+                localStorage.setItem('token', response.data.accessToken);
+                localStorage.setItem('refreshtoken', response.data.refreshToken);
+                navigate('/userPage');
                 window.location.reload();
             } else {
-                alert('Login failed. Check your credentials.');
+                setError('Login failed. Please check your credentials.');
             }
         } catch (error) {
-            console.error('Error during login:', error.message);
+            if (error.response) {
+                const { status, data } = error.response;
+
+                if (status === 404) {
+                    setEmailError('User not found. Please check your email.');
+                } else if (status === 401) {
+                    setPasswordError('Incorrect password. Please try again.');
+                } else {
+                    setError('An unexpected error occurred. Please try again.');
+                }
+            } else {
+                setError('An unexpected error occurred. Please try again.');
+            }
         }
     };
 
@@ -45,34 +59,38 @@ const Login = () => {
             <div className="form-content">
                 <span className="login-title">Login</span>
                 <form onSubmit={handleSubmit}>
-                    <div className="input-container">
+                    <div className={`input-container ${emailError ? 'error' : ''}`}>
                         <input
-                            className="form-field"
+                            className={`form-field ${emailError ? 'error' : ''}`}
                             type="email"
                             id="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
                             placeholder=" "
-                            required
                         />
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email" className={emailError ? 'label-error' : ''}>
+                            Email
+                        </label>
+                        {emailError && <div className="error-message-field">{emailError}</div>}
                     </div>
-                    <div className="input-container">
+                    <div className={`input-container ${passwordError ? 'error' : ''}`}>
                         <input
-                            className="form-field"
+                            className={`form-field ${passwordError ? 'error' : ''}`}
                             type="password"
                             id="password"
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
                             placeholder=" "
-                            required
                         />
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password" className={passwordError ? 'label-error' : ''}>
+                            Password
+                        </label>
+                        {passwordError && <div className="error-message-field">{passwordError}</div>}
                     </div>
                     <button className="submit-button" type="submit">
-                        Submit
+                        Login
                     </button>
                 </form>
                 <div className="form-links">
@@ -84,6 +102,6 @@ const Login = () => {
             </div>
         </section>
     );
-};
+}
 
 export default Login;

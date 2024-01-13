@@ -1,4 +1,3 @@
-// BookListing.js
 import React from 'react';
 import './BookListing.css';
 import { useInView } from 'react-intersection-observer';
@@ -22,12 +21,13 @@ const BookListing = ({ book }) => {
           <div className="book-details">
             <p className="book-title">{book.title}</p>
             <p className="author">{book.authors.map((author) => author).join(', ')}</p>
-            <p className="availability">{book.availability ? 'Available' : 'Not Available'}</p>
+            <p className={book.availability ? 'aviability-aviable' : 'aviability-unaviable'}>
+              {book.availability ? 'Available' : 'Unavailable'}
+            </p>
           </div>
         </div>
       </div>
     </animated.div>
-
   );
 };
 

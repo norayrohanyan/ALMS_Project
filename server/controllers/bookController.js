@@ -1,15 +1,26 @@
-import { query } from "express";
 import BookService from "../service/bookService.js";
 
 class BookController {
     static async getAllBooks(req, res) {
         try {
-            const books = await BookService.getAllBooks();
-            res.status(201).json(books);
+            const {filter, limit, offset } = req.query;
+            const books = await BookService.getAllBooks(filter, limit, offset);
+            res.status(200).json(books);
+        } 
+        catch (error) {
+            console.error('Controller Error:', error.message);
+            res.status(500).send({ error: 'Internal Server Error' });
+        }
+    }
+
+    static async getCategories(req, res) {
+        try {
+            const categories = await BookService.getCategories();
+            res.status(200).json(categories);
         }
         catch (error) {
             console.error('Controller Error:', error.message);
-            res.status(500).json({ error: error.message });
+            res.status(500).send({ error: 'Internal Server Error' });
         }
     }
 
@@ -28,7 +39,11 @@ class BookController {
         try {
             const { query } = req.query;
             const searchResult = await BookService.searchBooks(query);
-            res.status(201).json(searchResult);
+            if (searchResult.length === 0) {
+                res.status(404).json({ message: 'No books found' });
+            } else {
+                res.status(201).json(searchResult);
+            }
         }
         catch(error) {
             console.error('Error during book search:', error);

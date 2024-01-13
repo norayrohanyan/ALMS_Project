@@ -72,12 +72,9 @@
   font-size: 14px;
 }
 
-
-/* Add these styles to your existing stylesheet */
-
 .recent-book-details-wrapper {
   position: relative;
-  margin-top: 80px; /* Adjusted margin for better spacing */
+  margin-top: 80px;
   padding: 20px;
   width: 250px;
   height: 300px;

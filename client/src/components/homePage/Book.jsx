@@ -15,18 +15,18 @@ const Book = ({ book }) => {
     });
   
     return (
-      <animated.div ref={ref} style={fadeIn} className="">
         <Link to={`/bookdetails/${book.isbn}`} key={book.isbn}>
           <div className="recent-book-details-wrapper">
             <img src={book.cover_url} alt={book.title} />
             <div className="recent-book-details">
               <p className="book-title">{book.title}</p>
               <p className="author">{book.authors.map((author) => author).join(', ')}</p>
-              <p className="availability">{book.availability ? 'Available' : 'Not Available'}</p>
+              <p className={book.availability ? 'aviability-aviable' : 'aviability-unaviable'}>
+                {book.availability ? 'Available' : 'Unavailable'}
+              </p>
             </div>
           </div>
         </Link>
-      </animated.div>
     );
   };
 

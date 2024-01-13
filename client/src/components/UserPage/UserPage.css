@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+}
+
+.borrowed-book-listings {
+  padding: 20px;
+  width: 100%;
+  max-height: 800px; 
+  overflow: auto;
+}
+
+.borrowed-book-listings h2{
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+  background: linear-gradient(90deg, #8f57ef 0%, #3a72ef 50%, #3ed4ae 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+}

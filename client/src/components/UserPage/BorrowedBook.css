@@ -1,0 +1,33 @@
+.borrowed-book-listing-wrapper {
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.borrowed-book-listing {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 20px;
+    border-bottom: 2px solid #6760d5;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.borrowed-book-title {
+    text-align: start;
+    font-weight: 600;
+    font-size: 1.4238rem;
+    line-height: 1.2292;
+    letter-spacing: 0.005em;
+    color: rgb(27, 153, 169);
+    margin: 0;
+}
+
+.borrowed-book-listing img {
+    width: 90px;
+}
+
+.borrowed-book-listing-wrapper:hover .borrowed-book-listing {
+    background-color: #f5f5f5; 
+    transform: translateX(10px); 
+}

@@ -6,15 +6,12 @@ import Book from '../homePage/Book';
 
 const RelatedBooks = () => {
     const [books, setRecentAdditions] = useState([]);
-    // const [displayedBooks, setDisplayedBooks] = useState([]);
-    // const [visibleCount, setVisibleCount] = useState(3);
-  
+
     useEffect(() => {
       const fetchData = async () => {
         try {
           const response = await axios.get('http://localhost:3001/api/books');
           setRecentAdditions(response.data);
-        //   setDisplayedBooks(response.data.slice(0, visibleCount));
         } catch (error) {
           console.error('Error fetching data:', error.message);
         }

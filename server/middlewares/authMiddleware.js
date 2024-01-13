@@ -1,17 +1,24 @@
-import jwt from 'jsonwebtoken';
+import TokenService from '../service/tokenService.js';
 
-export const verifyToken = (req, res, next) => {
-  const token = req.headers.authorization;
+export default async function (req, res, next) {
+  try {
+    const token = req.headers.authorization;
 
   if (!token) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return next(res.status(401).json({ error: 'Unauthorized' }));
   }
 
-  jwt.verify(token, 'your-secret-key', (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ error: 'Unauthorized' });
-    }
-    req.userId = decoded.userId;
-    next();
-  });
+  const accessToken = token;
+
+  const userData = await TokenService.validateAccessToken(accessToken);
+  if (!userData) {
+    return next(res.status(401).json({ error: 'Unauthorized' }));
+  }
+
+  req.user = userData;
+  next();
+  
+  } catch (error) {
+    next(error);
+  }
 };

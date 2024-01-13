@@ -6,12 +6,13 @@ const Logout = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('refreshtoken');
         navigate('/login');
         window.location.reload();
     };
 
     return (
-        <button onClick={handleLogout}>
+        <button className="logout-button" onClick={handleLogout}>
             Logout
         </button>
     );
